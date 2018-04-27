@@ -1,0 +1,424 @@
+{
+    "stageDeepLevel": [
+        {
+            "id": 1,
+            "deept": 1,
+            "workLineCostMoney": 150,
+            "workLineCostSuperMoney": 75,
+            "multiplierDig": 0.5,
+            "multiplierCostLevelUp": 0.3
+        },
+        {
+            "id": 2,
+            "deept": 2,
+            "workLineCostMoney": 300,
+            "workLineCostSuperMoney": 150,
+            "multiplierDig": 1,
+            "multiplierCostLevelUp": 0.6
+        },
+        {
+            "id": 3,
+            "deept": 3,
+            "workLineCostMoney": 600,
+            "workLineCostSuperMoney": 300,
+            "multiplierDig": 1.5,
+            "multiplierCostLevelUp": 0.9
+        },
+        {
+            "id": 4,
+            "deept": 4,
+            "workLineCostMoney": 800,
+            "workLineCostSuperMoney": 400,
+            "multiplierDig": 2,
+            "multiplierCostLevelUp": 1.2
+        },
+        {
+            "id": 5,
+            "deept": 5,
+            "workLineCostMoney": 1025,
+            "workLineCostSuperMoney": 513,
+            "multiplierDig": 2.5,
+            "multiplierCostLevelUp": 1.5
+        },
+        {
+            "id": 6,
+            "deept": 6,
+            "workLineCostMoney": 1250,
+            "workLineCostSuperMoney": 625,
+            "multiplierDig": 3,
+            "multiplierCostLevelUp": 1.8
+        },
+        {
+            "id": 7,
+            "deept": 7,
+            "workLineCostMoney": 1475,
+            "workLineCostSuperMoney": 738,
+            "multiplierDig": 3.5,
+            "multiplierCostLevelUp": 2.1
+        },
+        {
+            "id": 8,
+            "deept": 8,
+            "workLineCostMoney": 1700,
+            "workLineCostSuperMoney": 850,
+            "multiplierDig": 4,
+            "multiplierCostLevelUp": 2.4
+        },
+        {
+            "id": 9,
+            "deept": 9,
+            "workLineCostMoney": 1925,
+            "workLineCostSuperMoney": 963,
+            "multiplierDig": 4.5,
+            "multiplierCostLevelUp": 2.7
+        },
+        {
+            "id": 10,
+            "deept": 10,
+            "workLineCostMoney": 2150,
+            "workLineCostSuperMoney": 1075,
+            "multiplierDig": 5,
+            "multiplierCostLevelUp": 3
+        },
+        {
+            "id": 11,
+            "deept": 11,
+            "workLineCostMoney": 2375,
+            "workLineCostSuperMoney": 1188,
+            "multiplierDig": 5.5,
+            "multiplierCostLevelUp": 3.3
+        },
+        {
+            "id": 12,
+            "deept": 12,
+            "workLineCostMoney": 2600,
+            "workLineCostSuperMoney": 1300,
+            "multiplierDig": 6,
+            "multiplierCostLevelUp": 3.6
+        },
+        {
+            "id": 13,
+            "deept": 13,
+            "workLineCostMoney": 2825,
+            "workLineCostSuperMoney": 1413,
+            "multiplierDig": 6.5,
+            "multiplierCostLevelUp": 3.9
+        },
+        {
+            "id": 14,
+            "deept": 14,
+            "workLineCostMoney": 3050,
+            "workLineCostSuperMoney": 1525,
+            "multiplierDig": 7,
+            "multiplierCostLevelUp": 4.2
+        },
+        {
+            "id": 15,
+            "deept": 15,
+            "workLineCostMoney": 3275,
+            "workLineCostSuperMoney": 1638,
+            "multiplierDig": 7.5,
+            "multiplierCostLevelUp": 4.5
+        },
+        {
+            "id": 16,
+            "deept": 16,
+            "workLineCostMoney": 3500,
+            "workLineCostSuperMoney": 1750,
+            "multiplierDig": 8,
+            "multiplierCostLevelUp": 4.8
+        },
+        {
+            "id": 17,
+            "deept": 17,
+            "workLineCostMoney": 3725,
+            "workLineCostSuperMoney": 1863,
+            "multiplierDig": 8.5,
+            "multiplierCostLevelUp": 5.1
+        },
+        {
+            "id": 18,
+            "deept": 18,
+            "workLineCostMoney": 3950,
+            "workLineCostSuperMoney": 1975,
+            "multiplierDig": 9,
+            "multiplierCostLevelUp": 5.4
+        },
+        {
+            "id": 19,
+            "deept": 19,
+            "workLineCostMoney": 4175,
+            "workLineCostSuperMoney": 2088,
+            "multiplierDig": 9.5,
+            "multiplierCostLevelUp": 5.7
+        },
+        {
+            "id": 20,
+            "deept": 20,
+            "workLineCostMoney": 4400,
+            "workLineCostSuperMoney": 2200,
+            "multiplierDig": 10,
+            "multiplierCostLevelUp": 6
+        }
+    ],
+    "workLine": [
+        {
+            "id": 1,
+            "level": 1,
+            "baseDig": 100
+        },
+        {
+            "id": 2,
+            "level": 2,
+            "baseDig": 200
+        },
+        {
+            "id": 3,
+            "level": 3,
+            "baseDig": 300
+        },
+        {
+            "id": 4,
+            "level": 4,
+            "baseDig": 400
+        },
+        {
+            "id": 5,
+            "level": 5,
+            "baseDig": 500
+        },
+        {
+            "id": 6,
+            "level": 6,
+            "baseDig": 600
+        },
+        {
+            "id": 7,
+            "level": 7,
+            "baseDig": 700
+        },
+        {
+            "id": 8,
+            "level": 8,
+            "baseDig": 800
+        },
+        {
+            "id": 9,
+            "level": 9,
+            "baseDig": 900
+        },
+        {
+            "id": 10,
+            "level": 10,
+            "baseDig": 1000
+        },
+        {
+            "id": 11,
+            "level": 11,
+            "baseDig": 1100
+        },
+        {
+            "id": 12,
+            "level": 12,
+            "baseDig": 1200
+        },
+        {
+            "id": 13,
+            "level": 13,
+            "baseDig": 1300
+        },
+        {
+            "id": 14,
+            "level": 14,
+            "baseDig": 1400
+        },
+        {
+            "id": 15,
+            "level": 15,
+            "baseDig": 1500
+        },
+        {
+            "id": 16,
+            "level": 16,
+            "baseDig": 1600
+        },
+        {
+            "id": 17,
+            "level": 17,
+            "baseDig": 1700
+        },
+        {
+            "id": 18,
+            "level": 18,
+            "baseDig": 1800
+        },
+        {
+            "id": 19,
+            "level": 19,
+            "baseDig": 1900
+        },
+        {
+            "id": 20,
+            "level": 20,
+            "baseDig": 2000
+        }
+    ],
+    "boss": [
+        {
+            "id": 1,
+            "boosName": "Gabriel"
+        },
+        {
+            "id": 2,
+            "boosName": "Pedro"
+        },
+        {
+            "id": 3,
+            "boosName": "Matias"
+        },
+        {
+            "id": 4,
+            "boosName": "Juan"
+        },
+        {
+            "id": 5,
+            "boosName": "Ruperto"
+        },
+        {
+            "id": 6,
+            "boosName": "Amaranto"
+        },
+        {
+            "id": 7,
+            "boosName": "Amador"
+        },
+        {
+            "id": 8,
+            "boosName": "Jonh"
+        },
+        {
+            "id": 9,
+            "boosName": "Mickel"
+        },
+        {
+            "id": 10,
+            "boosName": "Juana"
+        },
+        {
+            "id": 11,
+            "boosName": "Matt"
+        },
+        {
+            "id": 12,
+            "boosName": "Daimon"
+        },
+        {
+            "id": 13,
+            "boosName": "Peter"
+        },
+        {
+            "id": 14,
+            "boosName": "Paton"
+        },
+        {
+            "id": 15,
+            "boosName": "Putin"
+        },
+        {
+            "id": 16,
+            "boosName": "Paul"
+        },
+        {
+            "id": 17,
+            "boosName": "Jab"
+        },
+        {
+            "id": 18,
+            "boosName": "Hans"
+        },
+        {
+            "id": 19,
+            "boosName": "Meyer"
+        }
+    ],
+    "elevator": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 4,
+            "level": 4
+        },
+        {
+            "id": 5,
+            "level": 5
+        },
+        {
+            "id": 6,
+            "level": 6
+        },
+        {
+            "id": 7,
+            "level": 7
+        },
+        {
+            "id": 8,
+            "level": 8
+        },
+        {
+            "id": 9,
+            "level": 9
+        },
+        {
+            "id": 10,
+            "level": 10
+        },
+        {
+            "id": 11,
+            "level": 11
+        },
+        {
+            "id": 12,
+            "level": 12
+        },
+        {
+            "id": 13,
+            "level": 13
+        },
+        {
+            "id": 14,
+            "level": 14
+        },
+        {
+            "id": 15,
+            "level": 15
+        },
+        {
+            "id": 16,
+            "level": 16
+        },
+        {
+            "id": 17,
+            "level": 17
+        },
+        {
+            "id": 18,
+            "level": 18
+        },
+        {
+            "id": 19,
+            "level": 19
+        }
+    ],
+    "bossBustType": [],
+    "bossPosition": []
+}
