@@ -8,14 +8,15 @@ public class WorkLine : MonoBehaviour {
 	public Text workLineNum;
 	public Text superMoneyCostTxt;
 	public Text moneyCostTxt;
-
-	public int id;
 	public GameObject buyPanel;
 	public WorkPanel workPanel;
+	public GameObject elevatorPosition;
+	public GameObject workLineNext;
 
+	public int id;
 	public int workLineCostMoney;
 	public int workLineCostSuperMoney;
-	public GameObject workLineNext;
+
 	public bool working=false;
 
 	public void buyWorkLineMoney(){

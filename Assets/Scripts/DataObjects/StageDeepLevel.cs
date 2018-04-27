@@ -9,7 +9,7 @@ public class StageDeepLevel {
 	public int deept;
 	public int workLineCostMoney;
 	public int workLineCostSuperMoney;
-	public float multiplierDig;
+	public int baseDig;
 	public float multiplierCostLevelUp;
 
 }

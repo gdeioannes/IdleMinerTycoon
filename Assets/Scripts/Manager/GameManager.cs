@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour {
 			workLineObj.workLineCostMoney=dataModel.stageDeepLevel[i].workLineCostMoney;
 			workLineObj.workLineCostSuperMoney=dataModel.stageDeepLevel[i].workLineCostSuperMoney;
 			workLineObj.id=dataModel.stageDeepLevel[i].id;
+			workLineObj.workPanel.baseDig=dataModel.stageDeepLevel[i].baseDig;
 
 			//Issue with the scale and position, need to fix Gabriel
 			instanceWorkLine.gameObject.transform.localScale=new Vector3(1,1,1);

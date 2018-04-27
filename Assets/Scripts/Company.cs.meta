@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e8f75797fbdc647b2916a5276ad2ba4a
+timeCreated: 1524810142
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - boss: {instanceID: 0}
+  - bossSpawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
