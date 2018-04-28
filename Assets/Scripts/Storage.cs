@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Storage : Company {
+public class Storage : Company,Action {
 
 	public Elevator elevator;
-	public GameObject worker;
-	public GameObject workerPosStart;
-	public GameObject workerPosEnd;
 
 	public float time=2;
 	private int maxExtraction=100;
@@ -16,19 +13,24 @@ public class Storage : Company {
 	void Start () {
 		addWorker();
 		addBoss();
-		StartCoroutine(takeMoney());
 	}
 
-	private void addWorker(){
-		worker=Instantiate(worker);
-		worker.transform.SetParent(this.transform.parent);
-		worker.transform.position=workerPosStart.transform.position;
-		worker.transform.localScale=new Vector3(1,1,1);
+	public void callAction(){
+		if(!movingFlag && !bossActiveFlag){
+			movingFlag=true;
+			StartCoroutine(takeMoney());
+		}
 	}
-	
-	IEnumerator takeMoney(){
+
+	public IEnumerator bossTakeMoney(){
+		bossActiveFlag=true;
 		while(true){
-			
+			yield return StartCoroutine( takeMoney());
+		}
+	}
+
+	IEnumerator takeMoney(){
+			Debug.Log("Take Money Storage");
 			yield return new WaitForSeconds(time);
 			worker.GetComponent<Entity>().moveToPosition(workerPosEnd.transform);
 			int diference=0;
@@ -40,10 +42,10 @@ public class Storage : Company {
 				elevator.moneyStorage=0;
 			}
 			yield return new WaitForSeconds(time);
-			worker.GetComponent<Entity>().moveToPosition(workerPosStart.transform);
 			elevator.changeMoneyStorageTxt();
+			worker.GetComponent<Entity>().moveToPosition(workerPosStart.transform);
 			GameManager.instance.Money+=diference;
-		}
+			movingFlag=false;
 
 	}
 }

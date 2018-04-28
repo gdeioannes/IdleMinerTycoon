@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Elevator : Company {
+public class Elevator : Company,Action {
 
 	public int id;
 	public int level;
@@ -11,7 +11,8 @@ public class Elevator : Company {
 	public float timeUp=1f;
 	private int moneyElevatorMax=300;
 
-	public int workLineIndexCollector=0;
+	//Set -1 to be ready to start like a flag
+	private int workLineIndexCollector=-1;
 	public GameObject elevator;
 	public GameObject elevatorPosition;
 	public Text moneyTxt;
@@ -26,24 +27,42 @@ public class Elevator : Company {
 	// Use this for initialization
 	void Start () {
 		addBoss();
-		StartCoroutine(pickUpGold());
+	}
+
+	public void callAction(){
+		
+		if(workLineIndexCollector==-1 && !bossActiveFlag){
+			workLineIndexCollector=0;
+			StartCoroutine(pickUpGold());
+		}
+	}
+
+	public IEnumerator bossTakeMoney(){
+		bossActiveFlag=true;
+		while(true){
+			yield return StartCoroutine( pickUpGold());
+			workLineIndexCollector=0;
+		}
 	}
 
 	IEnumerator pickUpGold(){
 		
-		while(true){
+		while(workLineIndexCollector>=0){
 			WorkLine workline=GameManager.instance.listWorkLine[workLineIndexCollector]; 
 			yield return new WaitForSeconds(timeDown);
 
 			if(workline.working && moneyElevatorMax-(workline.workPanel.money+money)>0){
 				money+=workline.workPanel.money;
 				workline.workPanel.money=0;
+				workline.workPanel.setLoadTxt();
 				workLineIndexCollector++;
+				Debug.Log("Elevator Moving");
 				elevator.GetComponent<ElevatorEntity>().moveToPosition(workline.elevatorPosition.transform);
 			}else{
 				int saveDiference=moneyElevatorMax-money;
 				if(workline.working){
 					workline.workPanel.money-=saveDiference;
+					workline.workPanel.setLoadTxt();
 					money+=saveDiference;
 					changeMoneyTxt();
 
@@ -53,7 +72,7 @@ public class Elevator : Company {
 
 				moneyStorage+=money;
 				money=0;
-				workLineIndexCollector=0;
+				workLineIndexCollector=-1;
 				changeMoneyStorageTxt();
 			}
 			changeMoneyTxt();

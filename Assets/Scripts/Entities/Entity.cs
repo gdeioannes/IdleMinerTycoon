@@ -6,6 +6,5 @@ public abstract class Entity : MonoBehaviour {
 
 	public void moveToPosition(Transform trans){
 		this.transform.position=trans.position;
-		Debug.Log("Move Elevator");
 	}
 }

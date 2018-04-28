@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class WorkerEntity : Entity {
 
+	public void callParenAction(){
+		gameObject.transform.parent.GetComponent<Action>().callAction();
+	}
 
 }

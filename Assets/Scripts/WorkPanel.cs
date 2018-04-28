@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorkPanel : Company {
+public class WorkPanel : Company,Action {
 
 	public Text loadTxt;
-	public GameObject worker;
-	public GameObject workerPosStart;
-	public GameObject workerPosEnd;
 
 	public int money;
 	private int level=1;
@@ -16,30 +13,73 @@ public class WorkPanel : Company {
 	public int baseDig;
 	private float timeToDig=2f;
 
+	public Text totalStractionTxt;
+	public Text minersTxt;
+	public Text walkSpeedTxt;
+	public Text extractionSpeedTxt;
+	public Text workerCapacitiesTxt;
+
+	public Text levelTxr;
+
+	public float totalStraction=1;
+	public float miners=1;
+	public float walkSpeed=1;
+	public float extractionSpeed=1;
+	public float workerCapacities=1;
+
+
 	// Use this for initialization
 	void Start () {
 		addWorker();
 		addBoss();
-		loadTxt.text="0";
-		StartCoroutine(digMoney());
+		setLoadTxt();
+		setStatsText();
+		setLevelText();
 	}
 
-	private void addWorker(){
-		worker=Instantiate(worker);
-		worker.transform.SetParent(this.transform.parent);
-		worker.transform.position=workerPosStart.transform.position;
-		worker.transform.localScale=new Vector3(1,1,1);
+	public void callAction(){
+		if(!movingFlag && !bossActiveFlag){
+			movingFlag=true;
+			StartCoroutine(digMoney());
+		}
+	}
+
+	public IEnumerator bossTakeMoney(){
+		bossActiveFlag=true;
+		while(true){
+			yield return StartCoroutine( digMoney());
+		}
 	}
 
 	IEnumerator digMoney(){
-		while(true){
-			worker.GetComponent<Entity>().moveToPosition(workerPosStart.transform);
 			yield return new WaitForSeconds(timeToDig);
 			money+=Mathf.RoundToInt(baseDig*bust);
-			loadTxt.text=""+money;
+			setLoadTxt();
 			worker.GetComponent<Entity>().moveToPosition(workerPosEnd.transform);
 			yield return new WaitForSeconds(timeToDig);
-
-		}
+			worker.GetComponent<Entity>().moveToPosition(workerPosStart.transform);
+			movingFlag=false;
 	}
+
+	public void setLoadTxt(){
+		loadTxt.text=""+money;
+	}
+
+	public void setStatsText(){
+		totalStractionTxt.text=""+totalStraction+"T/s";
+		minersTxt.text=""+miners;
+		walkSpeedTxt.text=""+walkSpeed;
+		extractionSpeedTxt.text=""+extractionSpeed+"/s";
+		workerCapacitiesTxt.text=""+workerCapacities;
+	}
+
+	public void levelUp(){
+		level++;
+		setLevelText();
+	}
+
+	private void setLevelText(){
+		levelTxr.text="Line\nLevel\n"+level;
+	}
+
 }

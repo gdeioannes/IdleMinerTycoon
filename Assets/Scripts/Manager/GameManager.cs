@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 
 		//Add Top panel to the game
 		GameObject intTopWorkLine = Instantiate(topWorkLine);
-		intTopWorkLine.transform.parent=content.gameObject.transform;
+		intTopWorkLine.transform.SetParent(content.gameObject.transform);
 
 		//Issue with the scale and position, need to fix Gabriel
 		intTopWorkLine.gameObject.transform.localScale=new Vector3(1,1,1);
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
 			WorkLine workLineObj=instanceWorkLine.GetComponent<WorkLine>();
 			DataModel dataModel=DataController.instance.dataModel;
 
-			instanceWorkLine.transform.parent=content.gameObject.transform;
+			instanceWorkLine.transform.SetParent(content.gameObject.transform);
 			workLineObj.workLineCostMoney=dataModel.stageDeepLevel[i].workLineCostMoney;
 			workLineObj.workLineCostSuperMoney=dataModel.stageDeepLevel[i].workLineCostSuperMoney;
 			workLineObj.id=dataModel.stageDeepLevel[i].id;
