@@ -3,64 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Elevator : Company,Action {
+public class Elevator : Company {
 
-	public int id;
-	public int level;
+
 	public float timeDown=2;
 	public float timeUp=1f;
-	private int moneyElevatorMax=300;
 
-	//Set -1 to be ready to start like a flag
-	private int workLineIndexCollector=-1;
+
+	public float totalTansport;
+
+	public int id;
+	public int load;
+	public float speed;
+	public float loadSpeed;
+
+	private int workLineIndexCollector=0;
 	public GameObject elevator;
 	public GameObject elevatorPosition;
 	public Text moneyTxt;
 	public Text moneyStorageTxt;
+	public Text levelTxr;
 
 
-	private int money =0;
+	public int money =0;
 	public int moneyStorage=0;
 
 	public bool goBackFlag=false;
 
 	// Use this for initialization
 	void Start () {
-		addBoss();
+		setStats();
+		StartCoroutine(extractMoney());
 	}
 
-	public void callAction(){
+	public override IEnumerator extractMoney(){
 		
-		if(workLineIndexCollector==-1 && !bossActiveFlag){
-			workLineIndexCollector=0;
-			StartCoroutine(pickUpGold());
-		}
-	}
-
-	public IEnumerator bossTakeMoney(){
-		bossActiveFlag=true;
 		while(true){
-			yield return StartCoroutine( pickUpGold());
-			workLineIndexCollector=0;
-		}
-	}
-
-	IEnumerator pickUpGold(){
-		
-		while(workLineIndexCollector>=0){
 			WorkLine workline=GameManager.instance.listWorkLine[workLineIndexCollector]; 
 			yield return new WaitForSeconds(timeDown);
 
-			if(workline.working && moneyElevatorMax-(workline.workPanel.money+money)>0){
+			if(workline.workingFlag && load-(workline.workPanel.money+money)>0){
 				money+=workline.workPanel.money;
 				workline.workPanel.money=0;
 				workline.workPanel.setLoadTxt();
 				workLineIndexCollector++;
-				Debug.Log("Elevator Moving");
 				elevator.GetComponent<ElevatorEntity>().moveToPosition(workline.elevatorPosition.transform);
 			}else{
-				int saveDiference=moneyElevatorMax-money;
-				if(workline.working){
+				int saveDiference=load-money;
+				if(workline.workingFlag){
 					workline.workPanel.money-=saveDiference;
 					workline.workPanel.setLoadTxt();
 					money+=saveDiference;
@@ -72,19 +62,32 @@ public class Elevator : Company,Action {
 
 				moneyStorage+=money;
 				money=0;
-				workLineIndexCollector=-1;
+				workLineIndexCollector=0;
 				changeMoneyStorageTxt();
 			}
 			changeMoneyTxt();
 		}
 	}
 
+	public override void setStats(){
+		int index=level-1;
+		levelUpCost=DataController.instance.dataModel.elevatorLevel[index].levelUpCost;
+		load=DataController.instance.dataModel.elevatorLevel[index].load;
+		speed=DataController.instance.dataModel.elevatorLevel[index].speed;
+		loadSpeed=DataController.instance.dataModel.elevatorLevel[index].loadSpeed;
+		setLevelText();
+	}
+
 	public void changeMoneyTxt(){
-		moneyTxt.text="ID "+workLineIndexCollector+" "+money;
+		moneyTxt.text=""+money;
 	}
 
 	public void changeMoneyStorageTxt(){
 		moneyStorageTxt.text=""+moneyStorage;
+	}
+		
+	private void setLevelText(){
+		levelTxr.text="Elevator\nLevel\n"+level+"\nCost "+levelUpCost;
 	}
 
 }

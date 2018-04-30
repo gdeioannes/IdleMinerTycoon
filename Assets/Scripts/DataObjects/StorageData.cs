@@ -2,5 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkerEntity : Entity {
+[System.Serializable]
+public class StorageData{
+	public int level;
 }

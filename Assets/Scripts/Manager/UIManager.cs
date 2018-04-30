@@ -25,4 +25,5 @@ public class UIManager : MonoBehaviour {
 		moneyTxt.text=""+GameManager.instance.Money;
 		superMoneyTxt.text=""+GameManager.instance.SuperMoney;
 	}
+
 }

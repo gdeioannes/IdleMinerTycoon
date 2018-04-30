@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class WorkLine : MonoBehaviour {
 
-	public Text workLineNum;
+	public Text workLineNumTxt;
 	public Text superMoneyCostTxt;
 	public Text moneyCostTxt;
+
 	public GameObject buyPanel;
 	public WorkPanel workPanel;
 	public GameObject elevatorPosition;
 	public GameObject workLineNext;
 
 	public int id;
+	public int workLineNum;
 	public int workLineCostMoney;
 	public int workLineCostSuperMoney;
 
-	public bool working=false;
+	public bool workingFlag=false;
 
 	public void buyWorkLineMoney(){
 		if(GameManager.instance.Money>workLineCostMoney){
@@ -25,7 +28,7 @@ public class WorkLine : MonoBehaviour {
 			UIManager.instance.updateMoney();
 			showWorkPanel();
 			GameManager.instance.listWorkLine[id].GetComponent<WorkLine>().showBuyPanel();
-			working=true;
+			workingFlag=true;
 		}else{
 			Debug.Log("Not enougth Money");
 		}
@@ -37,7 +40,7 @@ public class WorkLine : MonoBehaviour {
 			UIManager.instance.updateMoney();
 			showWorkPanel();
 			GameManager.instance.listWorkLine[id].GetComponent<WorkLine>().showBuyPanel();
-			working=true;
+			workingFlag=true;
 		}else{
 			Debug.Log("Not enougth Super Money");
 		}
@@ -47,6 +50,8 @@ public class WorkLine : MonoBehaviour {
 	public void showWorkPanel(){
 		buyPanel.SetActive(false);
 		workPanel.gameObject.SetActive(true);
+		StartCoroutine( workPanel.extractMoney());
+		workPanel.lineActiveFlag=true;
 	}
 
 	public void showBuyPanel(){
@@ -61,8 +66,8 @@ public class WorkLine : MonoBehaviour {
 	}
 
 
-	public void setWorkLineNumber(int num){
-		workLineNum.text=""+num;
+	public void setWorkLineNumber(){
+		workLineNumTxt.text=""+workLineNum;
 	}
 
 	void changeBuyButtonsText ()
